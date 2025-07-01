@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
     branches: [main]
     paths:
-      - 'hello.py'  # Only trigger when this file is changed
+      - '**/hello.py'  # Only trigger when this file is changed
 
 jobs:
   run-python-on-pr:

@@ -1,9 +1,11 @@
-name: Pull Request on Windows
+name: Run hello.py on PR File Change
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches: [main]
+    paths:
+      - 'hello.py'  # Only trigger when this file is changed
 
 jobs:
   run-python-on-pr:
@@ -16,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'  # Or your preferred version
+          python-version: '3.10'
 
       - name: Run hello.py
         run: python hello.py
